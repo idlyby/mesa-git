@@ -12,7 +12,7 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.1.0_devel.188020.5363f7cce5c.d41d8cd
+pkgver=24.1.0_devel.188033.40f39482e15.d41d8cd
 pkgrel=1
 arch=('x86_64')
 makedepends=(
@@ -29,8 +29,6 @@ makedepends=(
     'directx-headers'
     'python-mako'
     'python-ply'
-    'rust'
-    'rust-bindgen'
     'cbindgen'
     'wayland-protocols'
     'cmake'
@@ -64,7 +62,9 @@ optdepends=('opengl-man-pages: for the OpenGL API man pages')
 provides=(
     'vulkan-mesa-layers'
     'opencl-clover-mesa'
-    'opencl-rusticl-mesa'
+    'opencl-driver'
+    'opengl-driver'
+    'vulkan-driver'
     'vulkan-intel'
     'vulkan-nouveau'
     'vulkan-radeon'
@@ -78,7 +78,6 @@ provides=(
 conflicts=(
     'vulkan-mesa-layers'
     'opencl-clover-mesa'
-    'opencl-rusticl-mesa'
     'vulkan-intel'
     'vulkan-nouveau'
     'vulkan-radeon'
@@ -124,7 +123,6 @@ for _crate in "${!_crates[@]}"; do
   source+=($_crate-${_crates[$_crate]}.tar.gz::https://crates.io/api/v1/crates/$_crate/${_crates[$_crate]}/download)
 done
 
-
 # NINJAFLAGS is an env var used to pass commandline options to ninja
 # NOTE: It's your responbility to validate the value of $NINJAFLAGS. If unsure, don't set it.
 
@@ -139,31 +137,61 @@ done
 # 4  llvm (stable from extra) Default value
 #
 
+rusticl=false
 MESA_WHICH_LLVM=${MESA_WHICH_LLVM:-4}
 case $MESA_WHICH_LLVM in
     1)
         # aur llvm-minimal-git
-        makedepends+=('llvm-minimal-git' 'libclc-minimal-git' 'spirv-llvm-translator-minimal-git' 'clang-minimal-git' 'clang-opencl-headers-minimal-git')
+        makedepends+=(
+            'llvm-minimal-git'
+            'libclc-minimal-git'
+            'spirv-llvm-translator-minimal-git'
+            'clang-minimal-git'
+            'clang-opencl-headers-minimal-git'
+        )
         depends+=('llvm-libs-minimal-git')
         ;;
     2)
         # aur llvm-git
         # depending on aur-llvm-* to avoid mixup with LH llvm-git
-        makedepends+=('aur-llvm-git')
+        makedepends+=(
+            'aur-llvm-git'
+            'libclc-git'
+            'spirv-llvm-translator-git'
+            'clang-git'
+            'clang-opencl-headers-git'
+        )
         depends+=('aur-llvm-libs-git')
         optdepends+=('aur-llvm-git: opencl')
         ;;
     3)
         # mesa-git/llvm-git (lordheavy unofficial repo)
-        makedepends+=('llvm-git' 'clang-git' 'libclc-git' 'spirv-tools' 'spirv-llvm-translator-git')
+        makedepends+=(
+            'llvm-git'
+            'clang-git'
+            'libclc-git'
+            'spirv-tools'
+            'spirv-llvm-translator-git'
+        )
         depends+=('llvm-libs-git')
         optdepends+=('clang-git: opencl' 'compiler-rt: opencl')
         ;;
     4)
         # extra/llvm
-        makedepends+=(llvm=17.0.6 clang=17.0.6 libclc spirv-llvm-translator spirv-tools)
+        makedepends+=(
+            'llvm=17.0.6'
+            'clang=17.0.6'
+            'libclc'
+            'spirv-llvm-translator'
+            'spirv-tools'
+            'rust'
+            'rust-bindgen'
+        )
         depends+=(llvm-libs=17.0.6)
         optdepends+=('clang: opencl' 'compiler-rt: opencl')
+        conflicts+=('opencl-rusticl-mesa')
+        provides+=('opencl-rusticl-mesa')
+        rusticl=true
         ;;
     *)
 esac
@@ -215,7 +243,7 @@ build () {
         -D gallium-nine=true
         -D gallium-omx=bellagio
         -D gallium-opencl=icd
-        -D gallium-rusticl=true
+        -D gallium-rusticl=${rusticl}
         -D gallium-va=enabled
         -D gallium-vdpau=enabled
         -D gallium-xa=enabled
