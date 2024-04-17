@@ -12,31 +12,117 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.1.0_devel.186662.72e1e6e1206.d41d8cd
+pkgver=24.1.0_devel.188020.5363f7cce5c.d41d8cd
 pkgrel=1
 arch=('x86_64')
-makedepends=('git' 'python-mako' 'xorgproto' 'libxml2' 'libvdpau' 'libva' 'elfutils' 'libxrandr'
-                            'wayland-protocols' 'meson' 'ninja' 'glslang' 'directx-headers' 'python-ply'
+makedepends=(
+    'git'
+    'xorgproto'
+    'libxml2'
+    'libvdpau'
+    'libva'
+    'elfutils'
+    'libxrandr'
+    'meson'
+    'ninja'
+    'glslang'
+    'directx-headers'
+    'python-mako'
+    'python-ply'
+    'rust'
+    'rust-bindgen'
+    'cbindgen'
+    'wayland-protocols'
+    'cmake'
 )
-depends=('libdrm' 'libxxf86vm' 'libxdamage' 'libxshmfence' 'libelf'
-         'libomxil-bellagio' 'libunwind' 'libglvnd' 'wayland' 'lm_sensors' 
-         'vulkan-icd-loader' 'zstd' 'expat' 'gcc-libs' 'libxfixes' 'libx11' 'systemd-libs' 'libxext' 'libxcb'
-         'glibc' 'zlib'
+depends=(
+    'libdrm'
+    'libxxf86vm'
+    'libxdamage'
+    'libxshmfence'
+    'libelf'
+    'libomxil-bellagio'
+    'libunwind'
+    'libglvnd'
+    'wayland'
+    'lm_sensors'
+    'vulkan-icd-loader'
+    'zstd'
+    'expat'
+    'gcc-libs'
+    'libxfixes'
+    'libx11'
+    'systemd-libs'
+    'libxext'
+    'libxcb'
+    'glibc'
+    'zlib'
+    'python'
+    'xcb-util-keysyms'
 )
 optdepends=('opengl-man-pages: for the OpenGL API man pages')
-provides=('mesa' 'vulkan-intel' 'vulkan-radeon' 'vulkan-mesa-layers' 'libva-mesa-driver' 'mesa-vdpau' 'vulkan-swrast' 'vulkan-driver' 'mesa-libgl' 'opengl-driver')
-conflicts=('mesa' 'opencl-clover-mesa' 'opencl-rusticl-mesa' 'vulkan-intel' 'vulkan-radeon' 'vulkan-mesa-layers' 'libva-mesa-driver' 'mesa-vdpau' 'vulkan-swrast' 'mesa-libgl')
+provides=(
+    'vulkan-mesa-layers'
+    'opencl-clover-mesa'
+    'opencl-rusticl-mesa'
+    'vulkan-intel'
+    'vulkan-nouveau'
+    'vulkan-radeon'
+    'vulkan-swrast'
+    'vulkan-virtio'
+    'libva-mesa-driver'
+    'mesa-vdpau'
+    'mesa-libgl'
+    'mesa'
+)
+conflicts=(
+    'vulkan-mesa-layers'
+    'opencl-clover-mesa'
+    'opencl-rusticl-mesa'
+    'vulkan-intel'
+    'vulkan-nouveau'
+    'vulkan-radeon'
+    'vulkan-swrast'
+    'vulkan-virtio'
+    'libva-mesa-driver'
+    'mesa-vdpau'
+    'mesa-libgl'
+    'mesa'
+)
 url="https://www.mesa3d.org"
 license=('custom')
-source=('mesa::git+https://gitlab.freedesktop.org/mesa/mesa.git#branch=main'
-             'LICENSE'
+source=(
+    'mesa::git+https://gitlab.freedesktop.org/mesa/mesa.git#branch=main'
+    'LICENSE'
 )
-md5sums=('SKIP'
-         '5c65a0fe315dd347e09b1f2826a1df5a')
-sha512sums=('SKIP'
-            '25da77914dded10c1f432ebcbf29941124138824ceecaf1367b3deedafaecabc082d463abcfa3d15abff59f177491472b505bcb5ba0c4a51bb6b93b4721a23c2')
+sha256sums=('SKIP'
+            '7fdc119cf53c8ca65396ea73f6d10af641ba41ea1dd2bd44a824726e01c8b3f2'
+            '39278fbbf5fb4f646ce651690877f89d1c5811a3d4acb27700c1cb3cdb78fd3b'
+            '3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b'
+            '5267fca4496028628a95160fc423a33e8b2e6af8a5302579e322e4b520293cae'
+            '23e78b90f2fcf45d3e842032ce32e3f2d1545ba6636271dcbf24fa306d87be7a')
+b2sums=('SKIP'
+        'cc60238726b35133b5b729fb4ed1e76e04136588533615d84b4a54656d5b41727d5e7ff06ef4de3eb102eed6669d6c5c5cb8ac9fbdf6fc25aa477877c5c3ba87'
+        'fff0dec06b21e391783cc136790238acb783780eaedcf14875a350e7ceb46fdc100c8b9e3f09fb7f4c2196c25d4c6b61e574c0dad762d94533b628faab68cf5c'
+        '4cede03c08758ccd6bf53a0d0057d7542dfdd0c93d342e89f3b90460be85518a9fd24958d8b1da2b5a09b5ddbee8a4263982194158e171c2bba3e394d88d6dac'
+        '77c4b166f1200e1ee2ab94a5014acd334c1fe4b7d72851d73768d491c56c6779a0882a304c1f30c88732a6168351f0f786b10516ae537cff993892a749175848'
+        '2cff6626624d03f70f1662af45a8644c28a9f92e2dfe38999bef3ba4a4c1ce825ae598277e9cb7abd5585eebfb17b239effc8d0bbf1c6ac196499f0d288e5e01')
+
+
 options=(!lto !debug)
 # lto and debug are disabled manually through meson -D flags, but it feels cleaner to also list them here.
+
+# Rust crates for NVK, used as Meson subprojects
+declare -A _crates=(
+   proc-macro2    1.0.70
+   quote          1.0.33
+   syn            2.0.39
+   unicode-ident  1.0.12
+)
+
+for _crate in "${!_crates[@]}"; do
+  source+=($_crate-${_crates[$_crate]}.tar.gz::https://crates.io/api/v1/crates/$_crate/${_crates[$_crate]}/download)
+done
 
 
 # NINJAFLAGS is an env var used to pass commandline options to ninja
@@ -51,12 +137,9 @@ options=(!lto !debug)
 # 2: AUR llvm-git
 # 3: llvm-git from LordHeavy unofficial repo 
 # 4  llvm (stable from extra) Default value
-# 
+#
 
-if [[ ! $MESA_WHICH_LLVM ]] ; then
-    MESA_WHICH_LLVM=4
-fi
-
+MESA_WHICH_LLVM=${MESA_WHICH_LLVM:-4}
 case $MESA_WHICH_LLVM in
     1)
         # aur llvm-minimal-git
@@ -78,7 +161,7 @@ case $MESA_WHICH_LLVM in
         ;;
     4)
         # extra/llvm
-        makedepends+=(llvm=17.0.6 clang=17.0.6 libclc spirv-llvm-translator)
+        makedepends+=(llvm=17.0.6 clang=17.0.6 libclc spirv-llvm-translator spirv-tools)
         depends+=(llvm-libs=17.0.6)
         optdepends+=('clang: opencl' 'compiler-rt: opencl')
         ;;
@@ -121,44 +204,53 @@ prepare() {
 }
 
 build () {
-    meson setup mesa _build \
-       -D b_ndebug=true \
-       -D b_lto=false \
-       -D platforms=x11,wayland \
-       -D gallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,swrast,i915,iris,crocus,zink,d3d12 \
-       -D vulkan-drivers=amd,intel,swrast,virtio,intel_hasvk \
-       -D vulkan-layers=device-select,overlay \
-       -D dri3=enabled \
-       -D egl=enabled \
-       -D gallium-extra-hud=true \
-       -D gallium-nine=true \
-       -D gallium-omx=bellagio \
-       -D gallium-opencl=disabled \
-       -D gallium-va=enabled \
-       -D gallium-vdpau=enabled \
-       -D gallium-xa=enabled \
-       -D gbm=enabled \
-       -D gles1=disabled \
-       -D gles2=enabled \
-       -D glvnd=true \
-       -D glx=dri \
-       -D libunwind=enabled \
-       -D llvm=enabled \
-       -D lmsensors=enabled \
-       -D osmesa=true \
-       -D shared-glapi=enabled \
-       -D microsoft-clc=disabled \
-       -D valgrind=disabled \
-       -D tools=[] \
-       -D zstd=enabled \
-       -D video-codecs=all \
-       -D buildtype=plain \
-       --wrap-mode=nofallback \
-       -D prefix=/usr \
-       -D sysconfdir=/etc
-       
+    local meson_options=(
+        -D android-libbacktrace=disabled
+        -D b_ndebug=true
+        -D b_lto=false
+        -D dri3=enabled
+        -D egl=enabled
+        -D gallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,swrast,i915,iris,crocus,zink,d3d12
+        -D gallium-extra-hud=true
+        -D gallium-nine=true
+        -D gallium-omx=bellagio
+        -D gallium-opencl=icd
+        -D gallium-rusticl=true
+        -D gallium-va=enabled
+        -D gallium-vdpau=enabled
+        -D gallium-xa=enabled
+        -D gbm=enabled
+        -D gles1=disabled
+        -D gles2=enabled
+        -D glvnd=enabled
+        -D glx=dri
+        -D intel-clc=enabled
+        -D libunwind=enabled
+        -D llvm=enabled
+        -D lmsensors=enabled
+        -D microsoft-clc=disabled
+        -D osmesa=true
+        -D platforms=x11,wayland
+        -D shared-glapi=enabled
+        -D valgrind=disabled
+        -D video-codecs=all
+        -D vulkan-drivers=amd,intel,intel_hasvk,swrast,virtio,nouveau
+        -D vulkan-layers=device-select,intel-nullhw,overlay
+        -D tools=[]
+        -D zstd=enabled
+        -D buildtype=plain
+        --wrap-mode=nofallback
+        --force-fallback-for=syn,paste
+        -D prefix=/usr
+        -D sysconfdir=/etc
+    )
+
+    # Build only minimal debug info to reduce size
+    CFLAGS+=' -g1'
+    CXXFLAGS+=' -g1'
+
+    meson setup mesa _build "${meson_options[@]}"
     meson configure --no-pager _build
-    
     ninja $NINJAFLAGS -C _build
 }
 
@@ -172,6 +264,6 @@ package() {
 
     # indirect rendering
     ln -s /usr/lib/libGLX_mesa.so.0 "${pkgdir}/usr/lib/libGLX_indirect.so.0"
-  
+ 
     install -m644 -Dt "${pkgdir}/usr/share/licenses/${pkgname}" "${srcdir}/LICENSE"
 }
