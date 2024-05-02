@@ -12,7 +12,7 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.1.0_devel.188033.40f39482e15.d41d8cd
+pkgver=24.2.0_devel.188655.894f7f43874.d41d8cd
 pkgrel=1
 arch=('x86_64')
 makedepends=(
@@ -32,6 +32,7 @@ makedepends=(
     'cbindgen'
     'wayland-protocols'
     'cmake'
+    'python-packaging'
 )
 depends=(
     'libdrm'
