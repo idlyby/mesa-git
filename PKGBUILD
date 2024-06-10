@@ -142,11 +142,12 @@ done
 # 4  llvm (stable from extra) Default value
 #
 
-rusticl=false
+_rusticl=false
 MESA_WHICH_LLVM=${MESA_WHICH_LLVM:-4}
 case $MESA_WHICH_LLVM in
     1)
         # aur llvm-minimal-git
+        _rusticl=true
         makedepends+=(
             'llvm-minimal-git'
             'libclc-minimal-git'
@@ -196,7 +197,7 @@ case $MESA_WHICH_LLVM in
         optdepends+=('clang: opencl' 'compiler-rt: opencl')
         conflicts+=('opencl-rusticl-mesa')
         provides+=('opencl-rusticl-mesa')
-        rusticl=true
+        _rusticl=true
         ;;
     *)
 esac
@@ -248,7 +249,7 @@ build () {
         -D gallium-nine=true
         -D gallium-omx=bellagio
         -D gallium-opencl=icd
-        -D gallium-rusticl=${rusticl}
+        -D gallium-rusticl=${_rusticl}
         -D gallium-va=enabled
         -D gallium-vdpau=enabled
         -D gallium-xa=enabled
