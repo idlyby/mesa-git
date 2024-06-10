@@ -12,7 +12,7 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.2.0_devel.190412.6cde457ab60.cf414e8
+pkgver=24.2.0_devel.190415.8cd53d95fe3.cf414e8
 pkgrel=1
 arch=('x86_64')
 makedepends=(
@@ -154,8 +154,21 @@ case $MESA_WHICH_LLVM in
             'spirv-llvm-translator-minimal-git'
             'clang-minimal-git'
             'clang-opencl-headers-minimal-git'
+            'rust'
+            'rust-bindgen'
+            'spirv-tools-git'
+            'glslang-minimal-git'
         )
-        depends+=('llvm-libs-minimal-git')
+        depends+=(
+            'llvm-libs-minimal-git'
+            'spirv-llvm-translator-minimal-git'
+            'libclc-minimal-git'
+            'spirv-tools-git'
+            'clang-libs-minimal-git'
+            'clang-opencl-headers-minimal-git'
+        )
+        conflicts+=('opencl-rusticl-mesa')
+        provides+=('opencl-rusticl-mesa')
         ;;
     2)
         # aur llvm-git
@@ -193,8 +206,13 @@ case $MESA_WHICH_LLVM in
             'rust'
             'rust-bindgen'
         )
-        depends+=(llvm-libs=17.0.6)
-        optdepends+=('clang: opencl' 'compiler-rt: opencl')
+        depends+=(
+            'llvm-libs=17.0.6'
+            'clang'
+            'libclc'
+            'spirv-llvm-translator'
+            'spirv-tools'
+        )
         conflicts+=('opencl-rusticl-mesa')
         provides+=('opencl-rusticl-mesa')
         _rusticl=true
