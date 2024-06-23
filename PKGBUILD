@@ -12,7 +12,7 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.2.0_devel.190415.8cd53d95fe3.cf414e8
+pkgver=24.2.0_devel.191080.cdd604583f6.d41d8cd
 pkgrel=1
 arch=('x86_64')
 makedepends=(
@@ -95,18 +95,15 @@ license=('custom')
 source=(
     'mesa::git+https://gitlab.freedesktop.org/mesa/mesa.git#branch=main'
     'LICENSE'
-    '29275.patch'
 )
 sha256sums=('SKIP'
             '7fdc119cf53c8ca65396ea73f6d10af641ba41ea1dd2bd44a824726e01c8b3f2'
-            '0385b5021e47a0e13e2ed5c58f115d29c410e3b3ec28a9795fdc377333779ee0'
             '39278fbbf5fb4f646ce651690877f89d1c5811a3d4acb27700c1cb3cdb78fd3b'
             '3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b'
             '5267fca4496028628a95160fc423a33e8b2e6af8a5302579e322e4b520293cae'
             '23e78b90f2fcf45d3e842032ce32e3f2d1545ba6636271dcbf24fa306d87be7a')
 b2sums=('SKIP'
         'cc60238726b35133b5b729fb4ed1e76e04136588533615d84b4a54656d5b41727d5e7ff06ef4de3eb102eed6669d6c5c5cb8ac9fbdf6fc25aa477877c5c3ba87'
-        '9c2112e513dfff173f680827764228b07ea9b2fef7c4c63b6287c55b1cb0b4a6ef37a1596dd0bf9a200f3b93c67b27253dd36194d4c73c127fff5bcb35263c6b'
         'fff0dec06b21e391783cc136790238acb783780eaedcf14875a350e7ceb46fdc100c8b9e3f09fb7f4c2196c25d4c6b61e574c0dad762d94533b628faab68cf5c'
         '4cede03c08758ccd6bf53a0d0057d7542dfdd0c93d342e89f3b90460be85518a9fd24958d8b1da2b5a09b5ddbee8a4263982194158e171c2bba3e394d88d6dac'
         '77c4b166f1200e1ee2ab94a5014acd334c1fe4b7d72851d73768d491c56c6779a0882a304c1f30c88732a6168351f0f786b10516ae537cff993892a749175848'
