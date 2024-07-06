@@ -22,8 +22,8 @@ pkgbase = mesa-git
 	makedepends = wayland-protocols
 	makedepends = cmake
 	makedepends = python-packaging
-	makedepends = llvm=17.0.6
-	makedepends = clang=17.0.6
+	makedepends = llvm=18.1.8
+	makedepends = clang=18.1.8
 	makedepends = libclc
 	makedepends = spirv-llvm-translator
 	makedepends = spirv-tools
@@ -52,7 +52,7 @@ pkgbase = mesa-git
 	depends = zlib
 	depends = python
 	depends = xcb-util-keysyms
-	depends = llvm-libs=17.0.6
+	depends = llvm-libs=18.1.8
 	depends = clang
 	depends = libclc
 	depends = spirv-llvm-translator
