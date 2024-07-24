@@ -1,6 +1,6 @@
 pkgbase = mesa-git
 	pkgdesc = an open-source implementation of the OpenGL specification, git version
-	pkgver = 24.3.0_devel.192336.47de27cde1b.d41d8cd
+	pkgver = 24.3.0_devel.192421.3b6867f53a6.d41d8cd
 	pkgrel = 1
 	url = https://www.mesa3d.org
 	arch = x86_64
@@ -22,7 +22,7 @@ pkgbase = mesa-git
 	makedepends = wayland-protocols
 	makedepends = cmake
 	makedepends = python-packaging
-	makedepends = python-yaml
+	makedepends = python-pyaml
 	makedepends = llvm=18.1.8
 	makedepends = clang=18.1.8
 	makedepends = libclc
@@ -90,6 +90,7 @@ pkgbase = mesa-git
 	options = !debug
 	source = mesa::git+https://gitlab.freedesktop.org/mesa/mesa.git#branch=main
 	source = LICENSE
+	source = 30311.patch
 	source = proc-macro2-1.0.70.tar.gz::https://crates.io/api/v1/crates/proc-macro2/1.0.70/download
 	source = unicode-ident-1.0.12.tar.gz::https://crates.io/api/v1/crates/unicode-ident/1.0.12/download
 	source = quote-1.0.33.tar.gz::https://crates.io/api/v1/crates/quote/1.0.33/download

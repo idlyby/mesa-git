@@ -12,7 +12,7 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.3.0_devel.192421.3b6867f53a6.d41d8cd
+pkgver=24.3.0_devel.192433.e16a74c0237.27daf3f
 pkgrel=1
 arch=('x86_64')
 makedepends=(
@@ -33,7 +33,7 @@ makedepends=(
     'wayland-protocols'
     'cmake'
     'python-packaging'
-    'python-yaml'
+    'python-pyaml'
 )
 depends=(
     'libdrm'
@@ -96,15 +96,18 @@ license=('custom')
 source=(
     'mesa::git+https://gitlab.freedesktop.org/mesa/mesa.git#branch=main'
     'LICENSE'
+    '30311.patch'
 )
 sha256sums=('SKIP'
             '7fdc119cf53c8ca65396ea73f6d10af641ba41ea1dd2bd44a824726e01c8b3f2'
+            'c2caa85aa8ff2564d122ce3250178cd9347d7183453a59eb38cdb7ae9505ce06'
             '39278fbbf5fb4f646ce651690877f89d1c5811a3d4acb27700c1cb3cdb78fd3b'
             '3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b'
             '5267fca4496028628a95160fc423a33e8b2e6af8a5302579e322e4b520293cae'
             '23e78b90f2fcf45d3e842032ce32e3f2d1545ba6636271dcbf24fa306d87be7a')
 b2sums=('SKIP'
         'cc60238726b35133b5b729fb4ed1e76e04136588533615d84b4a54656d5b41727d5e7ff06ef4de3eb102eed6669d6c5c5cb8ac9fbdf6fc25aa477877c5c3ba87'
+        '66a269bd6b4ea7e1c67e9fc6de0ca969744d0762b46067df75a2a87fd2af17e91bc5b079d515f33ce7b7ace9f423f80f7d45c6af24c05191f79136eb589d33cd'
         'fff0dec06b21e391783cc136790238acb783780eaedcf14875a350e7ceb46fdc100c8b9e3f09fb7f4c2196c25d4c6b61e574c0dad762d94533b628faab68cf5c'
         '4cede03c08758ccd6bf53a0d0057d7542dfdd0c93d342e89f3b90460be85518a9fd24958d8b1da2b5a09b5ddbee8a4263982194158e171c2bba3e394d88d6dac'
         '77c4b166f1200e1ee2ab94a5014acd334c1fe4b7d72851d73768d491c56c6779a0882a304c1f30c88732a6168351f0f786b10516ae537cff993892a749175848'
@@ -260,7 +263,7 @@ build () {
         -D b_lto=false
         -D dri3=enabled
         -D egl=enabled
-        -D gallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,swrast,i915,iris,crocus,zink,d3d12
+        -D gallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,llvmpipe,i915,iris,crocus,zink,d3d12
         -D gallium-extra-hud=true
         -D gallium-nine=true
         -D gallium-omx=bellagio
