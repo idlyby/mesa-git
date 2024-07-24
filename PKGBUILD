@@ -12,7 +12,7 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.3.0_devel.192433.e16a74c0237.27daf3f
+pkgver=24.3.0_devel.192434.c30e5d44b10.27daf3f
 pkgrel=1
 arch=('x86_64')
 makedepends=(
@@ -263,7 +263,7 @@ build () {
         -D b_lto=false
         -D dri3=enabled
         -D egl=enabled
-        -D gallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,llvmpipe,i915,iris,crocus,zink,d3d12
+        -D gallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,softpipe,llvmpipe,i915,iris,crocus,zink,d3d12
         -D gallium-extra-hud=true
         -D gallium-nine=true
         -D gallium-omx=bellagio
