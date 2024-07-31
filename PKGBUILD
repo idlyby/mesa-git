@@ -12,7 +12,7 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.3.0_devel.192477.76ae27efb3c.d41d8cd
+pkgver=24.3.0_devel.192733.56ea4e4fa63.d41d8cd
 pkgrel=1
 arch=('x86_64')
 makedepends=(
@@ -293,6 +293,7 @@ build () {
         --force-fallback-for=syn,paste
         -D prefix=/usr
         -D sysconfdir=/etc
+        -D legacy-x11=dri2
     )
 
     # Build only minimal debug info to reduce size
