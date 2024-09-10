@@ -13,7 +13,7 @@
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
 pkgver=24.3.0_devel.194624.eb68e6e84cf.d41d8cd
-pkgrel=1
+pkgrel=2
 arch=('x86_64')
 makedepends=(
     'git'
@@ -140,8 +140,8 @@ done
 #
 
 _rusticl=false
-# MESA_WHICH_LLVM=${MESA_WHICH_LLVM:-4}
-MESA_WHICH_LLVM=${MESA_WHICH_LLVM:-1}
+MESA_WHICH_LLVM=${MESA_WHICH_LLVM:-4}
+
 case $MESA_WHICH_LLVM in
     1)
         # aur llvm-minimal-git
