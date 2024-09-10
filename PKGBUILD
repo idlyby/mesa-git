@@ -12,7 +12,7 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.3.0_devel.192733.56ea4e4fa63.d41d8cd
+pkgver=24.3.0_devel.194618.397adfd4531.d41d8cd
 pkgrel=1
 arch=('x86_64')
 makedepends=(
@@ -141,7 +141,8 @@ done
 #
 
 _rusticl=false
-MESA_WHICH_LLVM=${MESA_WHICH_LLVM:-4}
+# MESA_WHICH_LLVM=${MESA_WHICH_LLVM:-4}
+MESA_WHICH_LLVM=${MESA_WHICH_LLVM:-1}
 case $MESA_WHICH_LLVM in
     1)
         # aur llvm-minimal-git
@@ -154,14 +155,14 @@ case $MESA_WHICH_LLVM in
             'clang-opencl-headers-minimal-git'
             'rust'
             'rust-bindgen'
-            'spirv-tools-git'
-            'glslang-minimal-git'
+            'spirv-tools'
+            'glslang'
         )
         depends+=(
             'llvm-libs-minimal-git'
             'spirv-llvm-translator-minimal-git'
             'libclc-minimal-git'
-            'spirv-tools-git'
+            'spirv-tools'
             'clang-libs-minimal-git'
             'clang-opencl-headers-minimal-git'
         )
@@ -258,12 +259,10 @@ build () {
         -D android-libbacktrace=disabled
         -D b_ndebug=true
         -D b_lto=false
-        -D dri3=enabled
         -D egl=enabled
         -D gallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,softpipe,llvmpipe,i915,iris,crocus,zink,d3d12
         -D gallium-extra-hud=true
         -D gallium-nine=true
-        -D gallium-omx=bellagio
         -D gallium-opencl=icd
         -D gallium-rusticl=${_rusticl}
         -D gallium-va=enabled
