@@ -12,7 +12,7 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.3.0_devel.194618.397adfd4531.d41d8cd
+pkgver=24.3.0_devel.194624.eb68e6e84cf.d41d8cd
 pkgrel=1
 arch=('x86_64')
 makedepends=(
@@ -63,7 +63,6 @@ depends=(
 optdepends=('opengl-man-pages: for the OpenGL API man pages')
 provides=(
     'vulkan-mesa-layers'
-    'opencl-clover-mesa'
     'opencl-driver'
     'opengl-driver'
     'vulkan-driver'
@@ -263,7 +262,7 @@ build () {
         -D gallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,softpipe,llvmpipe,i915,iris,crocus,zink,d3d12
         -D gallium-extra-hud=true
         -D gallium-nine=true
-        -D gallium-opencl=icd
+        -D gallium-opencl=disabled
         -D gallium-rusticl=${_rusticl}
         -D gallium-va=enabled
         -D gallium-vdpau=enabled
