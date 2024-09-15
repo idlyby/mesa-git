@@ -12,8 +12,8 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.3.0_devel.194624.eb68e6e84cf.d41d8cd
-pkgrel=2
+pkgver=24.3.0_devel.194818.d3429a7e00d.d41d8cd
+pkgrel=1
 arch=('x86_64')
 makedepends=(
     'git'
@@ -26,7 +26,7 @@ makedepends=(
     'meson'
     'ninja'
     'glslang'
-    'directx-headers'
+    'directx-headers-git'
     'python-mako'
     'python-ply'
     'cbindgen'
@@ -41,7 +41,6 @@ depends=(
     'libxdamage'
     'libxshmfence'
     'libelf'
-    'libomxil-bellagio'
     'libunwind'
     'libglvnd'
     'wayland'
