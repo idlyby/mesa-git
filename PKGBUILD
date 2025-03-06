@@ -13,7 +13,7 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=24.3.0_devel.194818.d3429a7e00d.d41d8cd
+pkgver=25.1.0_devel.202765.2c034470ed1.d41d8cd
 pkgrel=1
 arch=('x86_64')
 makedepends=(
@@ -191,10 +191,10 @@ build () {
     -D b_ndebug=true
     -D b_lto=false
     -D egl=enabled
-    -D gallium-drivers=radeonsi,softpipe,llvmpipe,zink,d3d12
+    -D gallium-drivers=radeonsi,softpipe,zink
     -D gallium-extra-hud=true
-    -D gallium-nine=true
-    -D gallium-opencl=disabled
+    -D gallium-nine=false
+    -D gallium-opencl=icd
     -D gallium-rusticl=true
     -D gallium-va=enabled
     -D gallium-vdpau=enabled
@@ -208,14 +208,13 @@ build () {
     -D libunwind=disabled
     -D llvm=enabled
     -D lmsensors=enabled
-    -D microsoft-clc=enabled
-    -D osmesa=true
+    -D microsoft-clc=disabled
     -D platforms=x11,wayland
     -D rust_std=2021
     -D shared-glapi=enabled
     -D valgrind=disabled
     -D video-codecs=all
-    -D vulkan-drivers=amd,swrast
+    -D vulkan-drivers=amd
     -D vulkan-layers=device-select,overlay,screenshot
     -D vulkan-beta=true
     -D tools=[]
@@ -225,7 +224,6 @@ build () {
     --force-fallback-for=syn,paste
     -D prefix=/usr
     -D sysconfdir=/etc
-    -D legacy-x11=dri2
   )
 
   # Build only minimal debug info to reduce size
