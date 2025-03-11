@@ -105,10 +105,12 @@ license=('custom')
 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29275
 source=(
   'mesa::git+https://gitlab.freedesktop.org/mesa/mesa.git#branch=main'
+  'vaapi-skip-linear.patch'
   'LICENSE'
 )
 sha256sums=(
   'SKIP'
+  '156d15297c0d7d961da4b5093daac0be1cc00cf072a6783109414517a2fe99c7'
   '7fdc119cf53c8ca65396ea73f6d10af641ba41ea1dd2bd44a824726e01c8b3f2'
   '39278fbbf5fb4f646ce651690877f89d1c5811a3d4acb27700c1cb3cdb78fd3b'
   '3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b'
@@ -117,6 +119,7 @@ sha256sums=(
 )
 b2sums=(
   'SKIP'
+  '660ba4cefaa955dcfc11910ae209c635d4d1a5b60702006b5f9c226ce1da46f5cc29a43ac25638295603cdf120a39e29f7ffd44929852a3e7573d48888cc4d9b'
   'cc60238726b35133b5b729fb4ed1e76e04136588533615d84b4a54656d5b41727d5e7ff06ef4de3eb102eed6669d6c5c5cb8ac9fbdf6fc25aa477877c5c3ba87'
   'fff0dec06b21e391783cc136790238acb783780eaedcf14875a350e7ceb46fdc100c8b9e3f09fb7f4c2196c25d4c6b61e574c0dad762d94533b628faab68cf5c'
   '4cede03c08758ccd6bf53a0d0057d7542dfdd0c93d342e89f3b90460be85518a9fd24958d8b1da2b5a09b5ddbee8a4263982194158e171c2bba3e394d88d6dac'
