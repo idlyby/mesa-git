@@ -197,7 +197,6 @@ build () {
     -D gallium-drivers=radeonsi,softpipe,zink
     -D gallium-extra-hud=true
     -D gallium-nine=false
-    -D gallium-opencl=disabled
     -D gallium-rusticl=true
     -D gallium-va=enabled
     -D gallium-vdpau=enabled
@@ -214,7 +213,6 @@ build () {
     -D microsoft-clc=disabled
     -D platforms=x11,wayland
     -D rust_std=2021
-    -D shared-glapi=enabled
     -D valgrind=disabled
     -D video-codecs=all
     -D vulkan-drivers=amd
