@@ -13,7 +13,7 @@
 
 pkgname=mesa-git
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=25.1.0_devel.203224.5b11c3ff0a4.b91479a
+pkgver=25.1.0_devel.202766.69982e6f2f3.d41d8cd
 pkgrel=1
 arch=('x86_64')
 makedepends=(
@@ -35,11 +35,10 @@ makedepends=(
   'cmake'
   'python-packaging'
   'python-pyaml'
-  'llvm-minimal-git'
-  'clang-minimal-git'
-  'clang-opencl-headers-minimal-git'
-  'libclc-minimal-git'
-  'spirv-llvm-translator-minimal-git'
+  'llvm'
+  'clang'
+  'libclc'
+  'spirv-llvm-translator'
   'spirv-tools'
   'rust'
   'rust-bindgen'
@@ -67,11 +66,10 @@ depends=(
   'zlib'
   'python'
   'xcb-util-keysyms'
-  'llvm-libs-minimal-git'
-  'clang-libs-minimal-git'
-  'clang-opencl-headers-minimal-git'
-  'libclc-minimal-git'
-  'spirv-llvm-translator-minimal-git'
+  'llvm-libs'
+  'clang'
+  'libclc'
+  'spirv-llvm-translator'
   'spirv-tools'
 )
 optdepends=('opengl-man-pages: for the OpenGL API man pages')
